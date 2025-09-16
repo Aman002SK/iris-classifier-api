@@ -26,8 +26,7 @@ jobs:
  
     - name: Run tests  # Step to execute pytest
       run: pytest test_app.py
-
-deploy:  # Job for deployment, depends on test job
+  deploy:  # Job for deployment, depends on test job
     needs: test  # Only run if test succeeds
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'  # Only on pushes to main
